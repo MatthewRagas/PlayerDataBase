@@ -5,12 +5,15 @@
 #include "Player.h"
 #include "DataBase.h"
 #include <iostream>
+#include <fstream>
+#include <string>
 
 
 int main()
 {
-	Player playerList[2] = { Player(), Player("Mary")};
-	std::cout << playerList->getName();
+	std::ofstream out;
+	DataBase playerList;	
+	playerList.savePlayer(out);
 	system("pause");
 }
 

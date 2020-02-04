@@ -14,4 +14,3 @@ private:
 	char _name[30];
 	int _highScore;
 };
-

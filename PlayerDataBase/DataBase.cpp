@@ -1,5 +1,8 @@
 #include "pch.h"
 #include "DataBase.h"
+#include <iostream>
+#include <fstream>
+#include <string>
 
 
 DataBase::DataBase()
@@ -33,9 +36,11 @@ Player * DataBase::Search()
 }
 
 //saves the player to the save file
-void DataBase::savePlayer(std::ofstream & out)
+void DataBase::savePlayer(std::ofstream& out)
 {
-
+	out.open("test.txt", std::ios::out);
+	out << "Hello world!" << std::endl;
+	out.close;
 }
 
 //loads players from the save file

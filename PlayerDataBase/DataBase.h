@@ -12,6 +12,5 @@ public:
 	bool load(std::ifstream& in);
 
 private:
-	Player _playerList[];
+	Player _playerList[30];
 };
-

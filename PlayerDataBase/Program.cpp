@@ -12,8 +12,10 @@
 int main()
 {
 	std::ofstream out;
-	DataBase playerList;	
-	playerList.savePlayer(out);
+	DataBase playerList;
+	out.open("test.txt", std::ios::out);
+	out << playerList.getPlayer(5).getName() << std::endl;
+	out.close();
 	system("pause");
 }
 

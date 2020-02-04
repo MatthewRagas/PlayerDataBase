@@ -8,8 +8,9 @@ public:
 	Player* Add();
 	Player* Sort();
 	Player* Search();
-	void savePlayer(std::ofstream& out);
+	void savePlayer();
 	bool load(std::ifstream& in);
+	Player getPlayer(int i);
 
 private:
 	Player _playerList[30];

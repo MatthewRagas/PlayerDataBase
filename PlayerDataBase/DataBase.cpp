@@ -36,15 +36,19 @@ Player * DataBase::Search()
 }
 
 //saves the player to the save file
-void DataBase::savePlayer(std::ofstream& out)
+void DataBase::savePlayer()
 {
-	out.open("test.txt", std::ios::out);
-	out << "Hello world!" << std::endl;
-	out.close;
+	std::ofstream out;
 }
 
 //loads players from the save file
 bool DataBase::load(std::ifstream & in)
 {
 	return false;
+}
+
+Player DataBase::getPlayer(int i)
+{
+
+	return _playerList[i];
 }

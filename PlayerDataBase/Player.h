@@ -4,10 +4,11 @@ class Player
 {
 public:
 	Player();
-	Player(const char name[]);
+	Player(char name[]);
 	~Player();
 	char* getName();
-	int gethighScore();
+	int getHighScore();
+	void editPlayerName(char* name);
 	
 
 private:

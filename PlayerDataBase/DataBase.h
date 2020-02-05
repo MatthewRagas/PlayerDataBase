@@ -5,13 +5,15 @@ class DataBase
 public:
 	DataBase();
 	~DataBase();
-	Player* Add();
-	Player* Sort();
+	void Add(Player newPlayer);
+	void Sort();
 	Player* Search();
-	void savePlayer();
-	bool load(std::ifstream& in);
+	void savePlayers();
+	bool load();
 	Player getPlayer(int i);
+	int getLength();	
 
 private:
-	Player _playerList[30];
+	Player* _playerList;
+	int _arrayLength;
 };

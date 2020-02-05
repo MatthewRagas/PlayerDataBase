@@ -7,15 +7,55 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+using namespace std;
 
 
 int main()
-{
-	std::ofstream out;
+{	
 	DataBase playerList;
-	out.open("test.txt", std::ios::out);
+	bool programOver = false;
+
+	char input;
+	playerList.load();
+	while (!programOver)
+	{
+		//playerList.Add(Player());
+		system("cls");
+
+		cout << "Welcome to the Player Data Base." << endl;
+		cout << endl;
+		cout << "1: Create New Player Profile" << endl;
+		cout << "2: Sort Existing Players" << endl;
+		cout << "3: Search from existing Players" << endl;
+		cout << "4: Save Player Files" << endl;
+		cout << "Player Data Base will save automatically when closing." << endl;
+		cin >> input;
+
+		switch (input)
+		{
+		case '1':
+			system("cls");
+			cout << "What is your name?" << endl;
+			char customName[30];
+			cin >> customName;
+			playerList.Add(Player(customName));
+			break;
+		case'2':
+			break;
+		case '3':
+			break;
+		case'4':
+			break;
+		}
+
+		playerList.savePlayers();
+
+		programOver = true;
+	}
+
+	/*out.open("test.txt", std::ios::out);
 	out << playerList.getPlayer(5).getName() << std::endl;
-	out.close();
+	out.close();*/
 	system("pause");
 }
 

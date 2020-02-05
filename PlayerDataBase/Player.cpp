@@ -9,7 +9,7 @@ Player::Player()
 	_highScore = 0;
 }
 
-Player::Player(const char name[])
+Player::Player(char name[])
 {
 	strcpy_s(_name, name);
 	_highScore = 0;
@@ -26,7 +26,12 @@ char* Player::getName()
 	return _name;
 }
 
-int Player::gethighScore()
+int Player::getHighScore()
 {
 	return _highScore;
+}
+
+void Player::editPlayerName(char* name)
+{
+	name = _name;
 }

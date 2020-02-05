@@ -51,26 +51,55 @@ void DataBase::savePlayers()
 {
 	std::ofstream file;
 	file.open("PlayerStats.txt",std::ios::out);	
+
+	//saves arraylength variable
+	file << _arrayLength << std::endl;
+
+	//saves player and high scores
 	for (int i = 0; i < _arrayLength; i++)
 	{
-		file << getPlayer(i).getName() << getPlayer(i).getHighScore() << std::endl;
+		file << getPlayer(i).getName() << std::endl;
+		file << getPlayer(i).getHighScore() <<std::endl;
 	}
+
 	file.close();
 }
 
 //loads players from the save file
 bool DataBase::load()
 {
+
+	char* name = new char[30];
+	int temphighscore;
+	int tempArrayLength;
+
 	std::ifstream file;
+
 	file.open("PlayerStats.txt", std::ios::in);
 
+	//checks if file is open
 	if (!file.is_open())
 		return false;
 
-	file.read(_playerList->getName, 30);
-	if (file.rdstate)
-		return false;
+	//loads in the array length from the file
+	//file.read((char*)&_arrayLength, sizeof(int));
+	file >> tempArrayLength;
 
+	//loads in player and player score
+	for (int i = 0; i < tempArrayLength; i++)
+	{
+		file >> name;
+		file >> temphighscore;
+
+		//creates player and adds player with loaded name to the list
+		Player newPlayer(name, temphighscore);
+		Add(newPlayer);
+	}
+
+	//checks to see if loads correctly
+	if (file.rdstate())
+		return false;		
+	
 	return true;
 }
 

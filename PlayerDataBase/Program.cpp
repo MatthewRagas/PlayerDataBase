@@ -27,8 +27,8 @@ int main()
 		cout << "1: Create New Player Profile" << endl;
 		cout << "2: Sort Existing Players" << endl;
 		cout << "3: Search from existing Players" << endl;
-		cout << "4: Save Player Files" << endl;
-		cout << "Player Data Base will save automatically when closing." << endl;
+		cout << "4: Display Player profiles" << endl;
+		cout << "5: Save Player Files" << endl;		
 		cin >> input;
 
 		switch (input)
@@ -38,9 +38,13 @@ int main()
 			cout << "What is your name?" << endl;
 			char customName[30];
 			cin >> customName;
-			playerList.Add(Player(customName));
+			cout << "What's your score?" << endl;
+			int customScore;
+			cin >> customScore;
+			playerList.Add(Player(customName,customScore));
 			break;
 		case'2':
+			programOver = true;
 			break;
 		case '3':
 			break;
@@ -50,7 +54,7 @@ int main()
 
 		playerList.savePlayers();
 
-		programOver = true;
+		
 	}
 
 	/*out.open("test.txt", std::ios::out);

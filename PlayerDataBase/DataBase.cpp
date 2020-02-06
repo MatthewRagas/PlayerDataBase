@@ -95,7 +95,7 @@ void DataBase::Display()
 }
 
 //Finds a specific player in the list by high score or name
-Player  DataBase::Search(char* name)
+Player * DataBase::Search(char* name)
 {
 	int i  = 0;
 	int max = _arrayLength - 1;
@@ -105,7 +105,7 @@ Player  DataBase::Search(char* name)
 	{
 		if (_playerList[searchSpot].getName() == name)
 		{
-			return _playerList[searchSpot];
+			return &_playerList[searchSpot];
 		}
 		else if (_playerList[searchSpot].getName() < name)
 		{
@@ -113,9 +113,10 @@ Player  DataBase::Search(char* name)
 		}
 		else if (_playerList[searchSpot].getName() > name)
 		{
-
-		}
+			max = _arrayLength - 1;
+		}									
 	}
+	return nullptr;
 }
 
 //saves player names and high scores to the save file

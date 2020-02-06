@@ -26,7 +26,7 @@ int main()
 		cout << endl;
 		cout << "1: Create New Player Profile" << endl;
 		cout << "2: Sort Existing Players" << endl;
-		cout << "3: Search from existing Players" << endl;
+		cout << "3: Search existing Players" << endl;
 		cout << "4: Display Player profiles" << endl;
 		cout << "5: Save Player Files" << endl;	
 		cout << "6: Exit program" << endl;
@@ -44,10 +44,14 @@ int main()
 			cin >> customScore;
 			playerList.Add(Player(customName,customScore));
 			break;
-		case'2':
+		case'2':						
 			playerList.Sort();
 			break;
 		case '3':
+			system("cls");
+			cout << "Who are you looking for?" << endl;
+			cin >> customName;
+			std::cout << playerList.Search(customName);
 			break;
 		case'4':			
 			playerList.Display();

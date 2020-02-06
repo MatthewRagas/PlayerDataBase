@@ -28,7 +28,8 @@ int main()
 		cout << "2: Sort Existing Players" << endl;
 		cout << "3: Search from existing Players" << endl;
 		cout << "4: Display Player profiles" << endl;
-		cout << "5: Save Player Files" << endl;		
+		cout << "5: Save Player Files" << endl;	
+		cout << "6: Exit program" << endl;
 		cin >> input;
 
 		switch (input)
@@ -44,11 +45,18 @@ int main()
 			playerList.Add(Player(customName,customScore));
 			break;
 		case'2':
-			programOver = true;
+			playerList.Sort();
 			break;
 		case '3':
 			break;
-		case'4':
+		case'4':			
+			playerList.Display();
+			system("pause");
+			break;
+		case '5':
+			break;
+		case '6':
+			programOver = true;
 			break;
 		}
 

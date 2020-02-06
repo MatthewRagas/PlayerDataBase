@@ -4,7 +4,7 @@ class Player
 {
 public:
 	Player();
-	Player(char name[], int score);
+	Player(char* name, int score);
 	~Player();
 	char* getName();
 	int getHighScore();

@@ -7,7 +7,8 @@ public:
 	~DataBase();
 	void Add(Player newPlayer);
 	void Sort();
-	Player* Search();
+	void Display();
+	Player Search(char* name);
 	void savePlayers();
 	bool load();
 	Player getPlayer(int i);

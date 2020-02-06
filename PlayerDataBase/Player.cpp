@@ -9,7 +9,7 @@ Player::Player()
 	_highScore = 0;
 }
 
-Player::Player(char name[], int score)
+Player::Player(char* name, int score)
 {
 	strcpy_s(_name, name);
 	_highScore = score;

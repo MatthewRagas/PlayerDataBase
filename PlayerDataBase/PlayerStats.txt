@@ -1,11 +1,3 @@
-5
-George
-500
-John
-500
-Luke
-500
-Mark
-500
-Matthew
-500
+1
+Mike
+70

@@ -28,7 +28,7 @@ int main()
 		cout << "2: Sort Existing Players" << endl;
 		cout << "3: Search existing Players" << endl;
 		cout << "4: Display Player profiles" << endl;
-		cout << "5: Save Player Files" << endl;	
+		cout << "5: Edit Player file" << endl;	
 		cout << "6: Exit program" << endl;
 		cin >> input;
 
@@ -52,11 +52,13 @@ int main()
 			cout << "Who are you looking for?" << endl;
 			cin >> customName;
 			system("cls");
-			if (playerList.Search(customName) < 0)
+			//if search function returns an integer within the bounds of the array
+			if (playerList.Search(customName) >= 0)
 			{
 				cout << "Player found" << endl;
 				cout << playerList.getPlayer(playerList.Search(customName)).getName() << endl;
 			}
+			//if the search function returns -1 the player was not found
 			else
 			{
 				cout << "Player not found." << endl;
@@ -64,11 +66,48 @@ int main()
 			
 			system("pause");
 			break;
-		case'4':			
+		case'4':		
+			//displays a list of the players in the data base
 			playerList.Display();
 			system("pause");
 			break;
 		case '5':
+			system("cls");
+			cout << "Who are you looking for?" << endl;
+			cin >> customName;
+			system("cls");
+			//if search function returns an integer within the bounds of the array
+			if (playerList.Search(customName) >= 0)
+			{
+				cout << "Edit name or Highscore?" << endl;
+				cout << "1: Name\n2: Highscore" << endl;
+				cin >> input;
+
+				switch(input)
+				{
+				case'1':
+					char newName[30];
+					system("cls");
+					cout << "Input new player name." << endl;
+					cin >> newName;
+					playerList.updatePlayerName(playerList.Search(customName), newName);
+					cout << playerList.getPlayer(playerList.Search(customName)).getName() << endl;
+					system("pause");
+					break;
+				case'2':
+					int newScore;
+					cout << "Input new player score." << endl;
+					cin >> newScore;
+					playerList.updatePlayerScore(playerList.Search(customName), newScore);
+					break;
+				}
+
+			}
+			//if the search function returns -1 the player was not found
+			else
+			{
+				cout << "Player not found." << endl;
+			}
 			break;
 		case '6':
 			programOver = true;

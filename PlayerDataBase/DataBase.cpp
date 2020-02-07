@@ -101,15 +101,15 @@ int  DataBase::Search(char* name)
 	int i  = 0;
 	int max = _arrayLength - 1;
 	
-
 	while (i <= max)
 	{
 		int searchSpot = (i + max) / 2;
 
+		//if the names are equal, return the index of the matched name
 		if (strcmp(_playerList[searchSpot].getName(), name) == 0)
 		{
 			return searchSpot;
-		}
+		}		
 		else if (strcmp(_playerList[searchSpot].getName(), name) < 0)
 		{
 			i = searchSpot + 1;
@@ -188,4 +188,17 @@ Player DataBase::getPlayer(int i)
 int DataBase::getLength()
 {
 	return _arrayLength;
+}
+
+Player DataBase::updatePlayerName(int i, char newName[30])
+{
+	_playerList[i].editPlayerName(newName);
+
+	return _playerList[i];
+}
+
+Player DataBase::updatePlayerScore(int i, int newScore)
+{
+	_playerList[i].editPlayerScore(newScore);
+	return _playerList[i];
 }

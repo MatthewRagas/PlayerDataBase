@@ -12,8 +12,9 @@ public:
 	void savePlayers();
 	bool load();
 	Player getPlayer(int i);
-	int getLength();	
-
+	int getLength();
+	Player updatePlayerName(int i, char newName[30]);
+	Player updatePlayerScore(int i, int newScore);
 private:
 	Player* _playerList;
 	int _arrayLength;

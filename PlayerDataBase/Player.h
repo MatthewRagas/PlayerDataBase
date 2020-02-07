@@ -9,7 +9,7 @@ public:
 	char* getName();
 	int getHighScore();
 	void editPlayerName(char* name);
-	
+	void editPlayerScore(int newScore);
 
 private:
 	char _name[30];

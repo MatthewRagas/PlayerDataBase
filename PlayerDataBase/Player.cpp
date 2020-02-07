@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Player.h"
+#include <string>
 #include <iostream>
 
 
@@ -33,5 +34,10 @@ int Player::getHighScore()
 
 void Player::editPlayerName(char* name)
 {
-	name = _name;
+	strcpy_s(_name, name);
+}
+
+void Player::editPlayerScore(int newScore)
+{
+	_highScore = newScore;
 }

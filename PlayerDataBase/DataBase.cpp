@@ -125,8 +125,10 @@ int  DataBase::Search(char* name)
 //saves player names and high scores to the save file
 void DataBase::savePlayers()
 {
+	
 	std::ofstream file;
-	file.open("PlayerStats.txt",std::ios::out);	
+	file.open("PlayerStats.dat", std::ofstream::out | std::ofstream::binary);
+	//file.open("PlayerStats.txt",std::ios::out);	
 
 	//saves arraylength variable
 	file << _arrayLength << std::endl;
@@ -134,8 +136,8 @@ void DataBase::savePlayers()
 	//saves player and high scores
 	for (int i = 0; i < _arrayLength; i++)
 	{
-		file << getPlayer(i).getName() << std::endl;
-		file << getPlayer(i).getHighScore() <<std::endl;
+		file.write(_playerList[i].getName(),30);
+		file.write((char*)_playerList[i].getHighScore(), sizeof(int));
 	}
 
 	file.close();
@@ -151,7 +153,7 @@ bool DataBase::load()
 
 	std::ifstream file;
 
-	file.open("PlayerStats.txt", std::ios::in);
+	file.open("PlayerStats.dat", std::ios::in);
 
 	//checks if file is open
 	if (!file.is_open())

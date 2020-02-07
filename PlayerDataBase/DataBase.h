@@ -8,7 +8,7 @@ public:
 	void Add(Player newPlayer);
 	void Sort();
 	void Display();
-	Player * Search(char* name);
+	int Search(char* name);
 	void savePlayers();
 	bool load();
 	Player getPlayer(int i);

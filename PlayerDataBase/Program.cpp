@@ -51,7 +51,10 @@ int main()
 			system("cls");
 			cout << "Who are you looking for?" << endl;
 			cin >> customName;
-			std::cout << playerList.Search(customName);
+			system("cls");
+			cout << "Player found" << endl;
+			cout << playerList.getPlayer(playerList.Search(customName)).getName() << endl;
+			system("pause");
 			break;
 		case'4':			
 			playerList.Display();

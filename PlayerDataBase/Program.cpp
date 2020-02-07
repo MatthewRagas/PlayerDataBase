@@ -52,8 +52,16 @@ int main()
 			cout << "Who are you looking for?" << endl;
 			cin >> customName;
 			system("cls");
-			cout << "Player found" << endl;
-			cout << playerList.getPlayer(playerList.Search(customName)).getName() << endl;
+			if (playerList.Search(customName) < 0)
+			{
+				cout << "Player found" << endl;
+				cout << playerList.getPlayer(playerList.Search(customName)).getName() << endl;
+			}
+			else
+			{
+				cout << "Player not found." << endl;
+			}
+			
 			system("pause");
 			break;
 		case'4':			

@@ -1,4 +1,6 @@
 5
+George
+500
 John
 500
 Luke
@@ -6,6 +8,4 @@ Luke
 Mark
 500
 Matthew
-500
-george
 500

@@ -131,13 +131,13 @@ void DataBase::savePlayers()
 	//file.open("PlayerStats.txt",std::ios::out);	
 
 	//saves arraylength variable
-	file << _arrayLength << std::endl;
-
+	file.write((char*)&_arrayLength, sizeof(int));
 	//saves player and high scores
 	for (int i = 0; i < _arrayLength; i++)
 	{
 		file.write(_playerList[i].getName(),30);
-		file.write((char*)_playerList[i].getHighScore(), sizeof(int));
+		int savescore = _playerList[i].getHighScore();
+		file.write((char*)&savescore, sizeof(int));
 	}
 
 	file.close();
@@ -160,14 +160,14 @@ bool DataBase::load()
 		return false;
 
 	//loads in the array length from the file
-	//file.read((char*)&_arrayLength, sizeof(int));
-	file >> tempArrayLength;
+	file.read((char*)&tempArrayLength, sizeof(int));
+	/*file >> tempArrayLength;*/
 
 	//loads in player and player score
 	for (int i = 0; i < tempArrayLength; i++)
 	{
-		file >> name;
-		file >> temphighscore;
+		file.read(name,30);
+		file.read((char*)&temphighscore,sizeof(int));
 
 		//creates player and adds player with loaded name to the list
 		Player newPlayer(name, temphighscore);
